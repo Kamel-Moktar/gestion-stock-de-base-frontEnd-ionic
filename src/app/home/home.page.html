@@ -1,20 +1,48 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onSaprovisionner()">
+        <ion-icon name="boat-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onRefresh()">
+        <ion-icon name="refresh" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="OnVent()">
+        <ion-icon name="barcode-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
-      Blank
+      Votre Stocke
     </ion-title>
   </ion-toolbar>
+  <ion-img src="{{cart.logo}}"></ion-img>
 </ion-header>
+<ion-content *ngIf="appStat$|async as stateAcc" [fullscreen]="true">
+  <ion-list >
+    <ion-list-header> <ion-label ><h1>Votre Stock acctuel</h1></ion-label></ion-list-header>
+    <ion-item  *ngFor="let p of stateAcc.productStat.products">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <ion-avatar slot="start">
+      </ion-avatar>
+      <ion-label>
+        <h6>Produit </h6>
+        <strong> {{p.name}}</strong>
+      </ion-label>
+       <ion-label slot="end">
+        <h6>Qte/Stocke</h6>
+        <strong> {{p.quantity}}</strong>
+       </ion-label>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    </ion-item>
+
+  </ion-list>
+
+
 </ion-content>

@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-card *ngIf="errorAuth">
+    <ion-card-content>
+      <ion-item color="danger">
+        <strong> Nom d'utilisateur ou mot de passe incorrecte </strong>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="userForm">
+        <ion-list>
+          <ion-item>
+            <ion-input formControlName="userName" id="username" placeholder="Nom d'utilistateur"
+                       type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="password" id="password" placeholder="Mot de pass" type="password"></ion-input>
+          </ion-item>
+          <ion-button (click)=onLogin(userForm.value) expand="block">Login</ion-button>
+        </ion-list>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="../home">
+        <ion-icon name="podium-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAnnuler()" color="primary">Close</ion-button>
+    </ion-buttons>
+    <ion-title>
+      Nouveau Collaborateurs
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-card-content>
+      <form [formGroup]="userForm">
+        <ion-list>
+          <ion-item>
+            <ion-input formControlName="userName" id="username" placeholder="Nom d'utilistateur" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="password" id="password" placeholder="Mot de pass" type="text"></ion-input>
+          </ion-item>
+          <ion-list-header>
+            <ion-label><strong> Mission </strong> </ion-label>
+          </ion-list-header>
+          <ion-list>
+            <ion-radio-group *ngIf="roles$|async as rolles" formControlName="role">
+              <ion-item *ngFor="let r of rolles">
+                <ion-label>{{r.roleName}}</ion-label>
+                <ion-radio color="primary" slot="start" value="{{r.roleName}}" ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+          <ion-button (click)=onAddUser(userForm.value) expand="block">Engerister</ion-button>
+        </ion-list>
+      </form>
+    </ion-card-content>
+  </form>
+</ion-content>

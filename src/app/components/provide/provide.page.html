@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="/menu/home">
+        <ion-icon name="podium-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onSave()">
+        <ion-icon name="checkmark-done-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      S'approvisionner
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="appStat$|async as stateAcc" [fullscreen]="true">
+  <ion-list>
+    <ion-list-header>
+      <ion-label><h1>Choisissez Les produits à approvisionner</h1></ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let v of stateAcc.productToProvideStat.productsToProvide">
+      <ion-avatar slot="start">
+      </ion-avatar>
+      <ion-item-group>
+        <ion-checkbox name="selected" [checked]=v.isSelected color="primary" slot="start" (click)="OnSelect(v)"></ion-checkbox>
+        <ion-label>
+          <strong> {{v.product.name}}</strong>
+        </ion-label>
+      </ion-item-group>
+      <ion-label slot="end">
+        <h6>Qte acheté</h6>
+        <strong> {{v.requestedQuantity}}</strong>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>

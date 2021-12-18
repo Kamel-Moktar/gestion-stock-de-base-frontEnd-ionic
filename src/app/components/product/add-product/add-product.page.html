@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="../home">
+        <ion-icon name="podium-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAnnuler()" color="primary">Close</ion-button>
+    </ion-buttons>
+    <ion-title>
+      Ajouter un produit
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form>
+    <ion-card-content>
+      <form [formGroup]="productForm">
+        <ion-list>
+          <ion-item>
+            <ion-input  formControlName="name" id="name" placeholder="Nom de produit"
+                       type="text"></ion-input>
+            <ion-list>
+            </ion-list>
+            <ion-button (click)=onAddProduct(productForm.value) expand="block">Engerister</ion-button>
+            </ion-item>
+        </ion-list>
+      </form>
+    </ion-card-content>
+  </form>
+</ion-content>

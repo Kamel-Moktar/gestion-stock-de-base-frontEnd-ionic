@@ -74,6 +74,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "app:build"
+
           },
           "configurations": {
             "production": {
@@ -171,6 +172,7 @@
     }
   },
   "cli": {
+    "analytics": "d456210a-3732-4a5b-8db6-a5c84c876054",
     "defaultCollection": "@ionic/angular-toolkit"
   },
   "schematics": {
@@ -181,4 +183,5 @@
       "styleext": "scss"
     }
   }
+
 }
