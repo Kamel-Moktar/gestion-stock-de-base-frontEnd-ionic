@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Observable, of} from "rxjs";
 import {Action} from "@ngrx/store";
-import {ProductService} from "../../servises/product.productService";
+import {ProductService} from "../../services/product.productService";
 import {
   AddProductActionError,
   AddProductActionSuccess,

@@ -3,7 +3,7 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Observable, of} from "rxjs";
 import {Action} from "@ngrx/store";
 import {catchError, map, mergeMap} from "rxjs/operators";
-import {ProductService} from "../../servises/product.productService";
+import {ProductService} from "../../services/product.productService";
 import {GetAllProductAction} from "../product/product.action";
 import {
   InitProductToSaleActionSuccess,

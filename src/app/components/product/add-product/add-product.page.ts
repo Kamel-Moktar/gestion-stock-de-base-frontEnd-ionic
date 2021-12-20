@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {AppRole} from "../../../models/AppRole";
 import {Router} from "@angular/router";
-import {AuthenticationService} from "../../../servises/authentication.service";
+import {AuthenticationService} from "../../../services/authentication.service";
 import {Store} from "@ngrx/store";
 import {AlertController} from "@ionic/angular";
 import {map} from "rxjs/operators";

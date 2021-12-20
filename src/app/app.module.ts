@@ -6,8 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from "@angular/common/http";
-import {AuthenticationService} from "./servises/authentication.service";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthenticationService} from "./services/authentication.service";
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import {UserEffects} from "./stat-managment/user/user.effects";
@@ -16,6 +16,7 @@ import {RoleEffects} from "./stat-managment/role/role.effects";
 import {ProductEffects} from "./stat-managment/product/product.effects";
 import {ProductToProvideEffects} from "./stat-managment/provide/provide.effects";
 import {ProductToSaleEffects} from "./stat-managment/sale/sale.effects";
+import {RequestInterceptorService} from "./services/request-interceptor-service.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,9 +28,15 @@ import {ProductToSaleEffects} from "./stat-managment/sale/sale.effects";
     StoreModule.forRoot({appStatAct:appReducer}, {}),
     EffectsModule.forRoot([UserEffects,RoleEffects,ProductEffects,ProductToProvideEffects,ProductToSaleEffects])
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {provide:  HTTP_INTERCEPTORS, useClass: RequestInterceptorService,multi:true}
+  ],
+
   bootstrap: [AppComponent],
+
 })
+
 export class AppModule {
   constructor(private route : Router,private auth :AuthenticationService) {
     let jwt=this.auth.loadToken();

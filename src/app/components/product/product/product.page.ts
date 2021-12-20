@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {AppStat} from "../../../stat-managment/app.reduecer";
-import {AuthenticationService} from "../../../servises/authentication.service";
+import {AuthenticationService} from "../../../services/authentication.service";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {AlertController} from "@ionic/angular";

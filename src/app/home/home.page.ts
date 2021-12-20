@@ -9,7 +9,7 @@ import {Product} from "../models/product";
 import {InitProductToProvideAction} from "../stat-managment/provide/provide.action";
 import {InitProductToSaleAction} from "../stat-managment/sale/sale.action";
 import {AppUser} from "../models/AppUser";
-import {AuthenticationService} from "../servises/authentication.service";
+import {AuthenticationService} from "../services/authentication.service";
 import {PutCurrentUser} from "../stat-managment/user/user.actions";
 
 @Component({

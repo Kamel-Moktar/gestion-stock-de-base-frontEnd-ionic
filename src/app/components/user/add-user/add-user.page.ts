@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {AuthenticationService} from "../../../servises/authentication.service";
+import {AuthenticationService} from "../../../services/authentication.service";
 import {Store} from "@ngrx/store";
 import {AddUserAction, GetAllUserAction} from "../../../stat-managment/user/user.actions";
 import {AppUser} from "../../../models/AppUser";

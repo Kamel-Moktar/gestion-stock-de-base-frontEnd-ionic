@@ -10,7 +10,7 @@ export const environment = {
   adminName:"ADMINISTRATEUR",
   sallerName:"VENDEUR",
   bayerName :"VENDEUR",
-
+  apiBaseUrl:"http://"
 
 
 };

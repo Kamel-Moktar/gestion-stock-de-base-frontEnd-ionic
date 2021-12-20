@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthenticationService} from "../../servises/authentication.service";
+import {AuthenticationService} from "../../services/authentication.service";
 import { MenuController} from "@ionic/angular";
 import {Store} from "@ngrx/store";
 import {InitProductToProvideAction} from "../../stat-managment/provide/provide.action";
