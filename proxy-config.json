@@ -1,0 +1,10 @@
+{
+  "localhost:5432/ma.pecherie": {
+    "target": "http://localhost:8080/",
+    "secure": false
+},
+  "localhost:5432/login": {
+    "target": "http://localhost:8080/login",
+    "secure": false
+  }
+}

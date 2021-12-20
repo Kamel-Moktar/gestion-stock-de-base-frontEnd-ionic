@@ -85,7 +85,7 @@ export class AuthenticationService {
 
 
   login(user: AppUser): Observable<AuthStat> {
-    let host = environment.backendHost;
+    let host = environment.apiBaseUrl;
     let jwt: string;
     return this.http.post(host + "/login", user, {observe: "response"}).pipe(
       map(response => {
