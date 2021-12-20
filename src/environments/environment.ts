@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  backendHost:"http://localhost:8082",
+   backendHost:"http://localhost:8080",
+  //backendHost:"http://ec2-3-142-197-2.us-east-2.compute.amazonaws.com:8080",
   tokenName:"token",
   adminName:"ADMINISTRATEUR",
   sallerName:"VENDEUR",
