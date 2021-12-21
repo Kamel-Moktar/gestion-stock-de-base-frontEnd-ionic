@@ -6,7 +6,7 @@ import {Observable, of} from "rxjs";
 import {AppUser} from "../models/AppUser";
 import {AppRole} from "../models/AppRole";
 import {Store} from "@ngrx/store";
-import {PutCurrentUser} from "../stat-managment/user/user.actions";
+
 
 
 @Injectable({
@@ -85,7 +85,7 @@ export class AuthenticationService {
 
 
   login(user: AppUser): Observable<AuthStat> {
-    let host = environment.apiBaseUrl;
+    let host = environment.backendHost;
     let jwt: string;
     return this.http.post(host + "/login", user, {observe: "response"}).pipe(
       map(response => {
