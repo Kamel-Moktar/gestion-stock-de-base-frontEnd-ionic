@@ -9,6 +9,7 @@ import {Store} from "@ngrx/store";
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -85,9 +86,9 @@ export class AuthenticationService {
 
 
   login(user: AppUser): Observable<AuthStat> {
-    let host = environment.backendHost;
+    console.log("larequette0nnnnnnnnnnn");
     let jwt: string;
-    return this.http.post(host + "/login", user, {observe: "response"}).pipe(
+    return this.http.post("/login", user, {observe: "response"}).pipe(
       map(response => {
         jwt = response.headers.get("Authorization");
         this.saveToken(jwt);

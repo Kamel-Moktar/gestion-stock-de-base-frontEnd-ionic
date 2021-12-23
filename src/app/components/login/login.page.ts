@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../services/authentication.service";
 import {AppUser} from "../../models/AppUser";
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,7 +13,11 @@ import {AppUser} from "../../models/AppUser";
 export class LoginPage implements OnInit {
  private userForm : FormGroup;
  private errorAuth :boolean=false;
-  constructor(private router : Router, private fb : FormBuilder, private auth:AuthenticationService) { }
+  constructor(private router : Router,
+              private fb : FormBuilder,
+              private auth:AuthenticationService,
+
+  ) { }
 
   ngOnInit() {
     this.userForm=this.fb.group(
@@ -20,6 +25,7 @@ export class LoginPage implements OnInit {
         userName:["",Validators.required],
         password:["",Validators.required]
       }
+
     )
 
   }

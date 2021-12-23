@@ -11,6 +11,7 @@ import {InitProductToSaleAction} from "../stat-managment/sale/sale.action";
 import {AppUser} from "../models/AppUser";
 import {AuthenticationService} from "../services/authentication.service";
 import {PutCurrentUser} from "../stat-managment/user/user.actions";
+import {HttpInterceptor, HttpRequest} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,7 @@ export class HomePage implements OnInit{
   }
   private appStat$ :Observable<AppStat>
   private products :Product[];
-  constructor(private store : Store<any>,private router :Router,private auth: AuthenticationService) {}7
+  constructor(private store : Store<any>,private router :Router,private auth: AuthenticationService) {}
   currentUser :AppUser ;
 
   ngOnInit(){
@@ -51,6 +52,8 @@ export class HomePage implements OnInit{
 
   onRefresh() {
     this.store.dispatch(new GetAllProductAction({}))
+
+
   }
 
   OnVent() {

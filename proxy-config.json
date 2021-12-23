@@ -3,14 +3,29 @@
   "/ma.pecherie/": {
     "target": "http://localhost:8080",
     "secure": false,
+    "logLevel": "debug"
+
+  },
+  "/login": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+
+  },
+  "http://localhost/ma.pecherie/": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+
+  },
+
+  "http://localhost/login": {
+    "target": "http://localhost:8080",
+    "secure": false,
     "logLevel": "debug",
-
-    "pathRewrite": {
-      "^/ma.pecherie/login" : "/login"
-
-    }
-
+    "changeOrigin": true
   }
+
 
 }
 

@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {AuthenticationService} from "./services/authentication.service";
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -16,6 +16,7 @@ import {RoleEffects} from "./stat-managment/role/role.effects";
 import {ProductEffects} from "./stat-managment/product/product.effects";
 import {ProductToProvideEffects} from "./stat-managment/provide/provide.effects";
 import {ProductToSaleEffects} from "./stat-managment/sale/sale.effects";
+import { RequestInterceptorService } from './services/http-request-interceptor.service';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {ProductToSaleEffects} from "./stat-managment/sale/sale.effects";
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptorService, multi: true}
 
   ],
 
@@ -38,9 +40,20 @@ import {ProductToSaleEffects} from "./stat-managment/sale/sale.effects";
 })
 
 export class AppModule {
-  constructor(private route : Router,private auth :AuthenticationService) {
+  constructor(private route : Router,private auth :AuthenticationService, private httpClient:HttpClient) {
+
+    httpClient.get<any>("/assets/config.json").subscribe(
+      r=> {
+        console.log(r.bdd_host)
+        this.saveBddHost(r.bdd_host)
+      }
+    )
     let jwt=this.auth.loadToken();
     if(jwt==null)  this.route.navigateByUrl("/login")
     else this.route.navigateByUrl("/menu/home")
+  }
+
+  saveBddHost(host :string){
+    localStorage.setItem("bddHost",host);
   }
 }

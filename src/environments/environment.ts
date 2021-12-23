@@ -5,13 +5,12 @@
 export const environment = {
   production: false,
   maApi:"ma.pecherie",
-  //backendHost:"http://18.191.195.240:8080/ma.pecherie",
   backendHost:"/ma.pecherie",
   tokenName:"token",
   adminName:"ADMINISTRATEUR",
   sallerName:"VENDEUR",
   bayerName :"VENDEUR",
-  apiBaseUrl :"http://localhost:8080"
+  apiBaseUrl :"bddHost"
 
 
 };
